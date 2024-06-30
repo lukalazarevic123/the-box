@@ -60,7 +60,7 @@ contract TheBox {
     }
 
     function setFlag(uint _itemId, bool _flag) public {
-        if (_itemId == 0 || _itemId == BOX_ITEMS) revert InvalidItemId();
+        if (_itemId == 0 || _itemId == BOX_ITEMS || items[_itemId].next == 0) revert InvalidItemId();
         
         items[_itemId].forSale = _flag;
 
